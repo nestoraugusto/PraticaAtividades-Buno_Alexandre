@@ -22,7 +22,7 @@ public class OperacoesMatematicas {
 			Double subtracao;
 			subtracao = x-y;
 			return subtracao;
-		}
+		} 
 		throw new NumberFormatException(
 				"Voce deve passar dois valores para o calculo.");
 	}
@@ -31,7 +31,7 @@ public class OperacoesMatematicas {
 		Double x = num1;
 		Double y = num2;
 		if (x != null && y != null) {
-			Double multiplicacao;
+			Double multiplicacao; 
 			multiplicacao = x*y;
 			return multiplicacao;
 		}

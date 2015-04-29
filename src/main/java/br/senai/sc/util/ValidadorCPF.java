@@ -17,21 +17,21 @@ public class ValidadorCPF {
          *                String valor com 11 d�gitos
          * @return boolean indicando se o usu�rio entrou com um CPF valido
          */
-        public static boolean validaCPF(String cpf) {
+       public static boolean validaCPF(String cpf) {
                 cpf = retiraCaracteresInvalidos(cpf);
                 if (cpf == null || cpf.length() != 11 || isCPFPadrao(cpf))
                         return false;
- 
+  
                 try {
                         Long.parseLong(cpf);
                 } catch (NumberFormatException e) { // CPF n�o possui somente n�meros
                         return false;
                 }
                 
-                return calculaDigitoVerificador(cpf.substring(0, 9)).equals(cpf.substring(9, 11));
+                return calculaDigitoVerificador(cpf.substring(0, 9)).equals(cpf.substring(9, 11)); 
         }
  
-        /**
+        /*
          *
          * @param cpf
          *                String valor a ser testado
@@ -72,6 +72,8 @@ public class ValidadorCPF {
                         segDig = new Integer(11 - (soma % 11));
  
                 return primDig.toString() + segDig.toString();
-        }
+        } 
  
-}
+        
+}  
+

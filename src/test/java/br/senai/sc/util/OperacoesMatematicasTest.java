@@ -65,6 +65,7 @@ public class OperacoesMatematicasTest extends TestCase{
 		assertFalse("Erro na soma dos valores.", valorExperado != valorAtual);
 	}
 	
+	
 	@Test
 	public static void testSubtracaoDoisValoresInteiros() {
 		assertEquals("Erro na soma dos valores.", 4d, (double)OperacoesMatematicas.subtraiDoisValoresReais(5d, 1d));
@@ -84,7 +85,7 @@ public class OperacoesMatematicasTest extends TestCase{
 	@Test
 	public static void testSubtracaoComResultadoErrado(){
 		double num1 = 10d;
-		double num2 = 5d;
+		double num2 = 5d; 
 		double valorExperado = 5d;
 		double valorAtual = OperacoesMatematicas.subtraiDoisValoresReais(num1, num2);
 		assertFalse("Erro na multiplicacao dos valores.", valorExperado != valorAtual);
@@ -192,7 +193,7 @@ public class OperacoesMatematicasTest extends TestCase{
 		double num2 = 5.0;
 		double valorExperado = 2.0;
 		double valorAtual = OperacoesMatematicas.divideDoisValoresReais(num1, num2);
-		assertFalse("Erro na divisao dos valores.", valorExperado != valorAtual);
+		assertTrue("Erro na divisao dos valores.", valorExperado != valorAtual);
 	}
 	
 	
