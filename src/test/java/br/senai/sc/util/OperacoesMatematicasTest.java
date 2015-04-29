@@ -10,7 +10,7 @@ import org.junit.Test;
 public class OperacoesMatematicasTest extends TestCase{
 	
 	@Test
-	public static void testSomaDoisValoresInteiros() {
+	public static void testSomaDoisValoresInteiros() { 
 		double num1 = 10d;
 		double num2 = 20d;
 		double valorExperado = 30d;
@@ -44,6 +44,7 @@ public class OperacoesMatematicasTest extends TestCase{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		assertEquals(null,null); 
 	}
 	
 	@Test
@@ -80,6 +81,15 @@ public class OperacoesMatematicasTest extends TestCase{
 		assertEquals("Erro na soma dos valores.", vlExperado, vlAtual);
 	}
 	
+	@Test
+	public static void testSubtracaoComResultadoErrado(){
+		double num1 = 10d;
+		double num2 = 5d;
+		double valorExperado = 5d;
+		double valorAtual = OperacoesMatematicas.subtraiDoisValoresReais(num1, num2);
+		assertFalse("Erro na multiplicacao dos valores.", valorExperado != valorAtual);
+	}
+	
 	@Test(expected = NumberFormatException.class)
 	public static void testSubtracaoDoisValoresByNulo() {
 		try {
@@ -89,26 +99,146 @@ public class OperacoesMatematicasTest extends TestCase{
 		}
 		assertEquals(null,null);
 	}
-	
+	 
 	@Test(expected = NumberFormatException.class)
 	public static void testSubtracaoDoisValoresBypassandoUmNulo() {
 		try {
 			OperacoesMatematicas.subtraiDoisValoresReais(1d, null);
+		} catch (Exception e) { 
+			e.printStackTrace();
+		}
+		assertEquals(null,null);
+	}
+	
+	@Test 
+	public static void testMultiplicacaoComValoresReais(){
+		double num1 = 10.0;
+		double num2 = 3.0;
+		double valorExperado = 30.0;
+		double valorAtual = OperacoesMatematicas.multiplicaDoisValoresReais(num1, num2);
+		assertEquals("Erro na multiplicacao dos valores.", valorExperado,  valorAtual);
+	}
+	
+	@Test 
+	public static void testMultiplicacaoComValoresInteiros(){
+		double num1 = 10d;
+		double num2 = 3d;
+		double valorExperado = 30d;
+		double valorAtual = OperacoesMatematicas.multiplicaDoisValoresReais(num1, num2);
+		assertEquals("Erro na multiplicacao dos valores.", valorExperado,  valorAtual);
+	}
+	
+	@Test
+	public static void testMultiplicacaoComResultadoErrado(){
+		double num1 = 10.0;
+		double num2 = 3.0;
+		double valorExperado = 40.0;
+		double valorAtual = OperacoesMatematicas.multiplicaDoisValoresReais(num1, num2);
+		assertFalse("Erro na multiplicacao dos valores.", valorExperado != valorAtual);
+	}
+	
+	@Test(expected = NumberFormatException.class)
+	public static void testMultiplicacaoPassandoDoisNulo(){
+		try {
+			OperacoesMatematicas.multiplicaDoisValoresReais(null, null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		assertEquals(null,null);
 	}
 	
-	@Test
-	public static void testValidaMultiplicacao(){
-		double num1 = 10.0;
-		double num2 = 3.0;
-		double valorExperado = 30.0;
-		double valorAtual = OperacoesMatematicas.multiplicaDoisValoresReais(num1, num2);
-		assertTrue("Erro na multiplicaÃ§Ã£o dos valores.", valorExperado == valorAtual);
+	@Test(expected = NumberFormatException.class)
+	public static void testMultiplicacaoPassandoUmNuloX(){
+		try {
+			OperacoesMatematicas.multiplicaDoisValoresReais(null, 10.0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		assertEquals(null,null);
 	}
-}
+	
+	@Test(expected = NumberFormatException.class)
+	public static void testMultiplicacaoPassandoUmNuloY(){
+		try {
+			OperacoesMatematicas.multiplicaDoisValoresReais(10.0, null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		assertEquals(null,null);
+	}
+		
+	
+	@Test
+	public static void testDivisaoComValoresReais(){
+		double num1 = 10.0; 
+		double num2 = 5.0;
+		double valorExperado = 2.0;
+		double valorAtual = OperacoesMatematicas.divideDoisValoresReais(num1, num2);
+		assertEquals("Erro na divisao dos valores.", valorExperado, valorAtual);
+	}
+	
+	@Test
+	public static void testDivisaoComValoresInteiros(){
+		double num1 = 10d;
+		double num2 = 5d;
+		double valorExperado = 2d;
+		double valorAtual =  OperacoesMatematicas.divideDoisValoresReais(num1, num2);
+		assertEquals("Erro na divisao dos valores.", valorExperado, valorAtual);
+	}
+	
+	@Test
+	public static void testDivisaoComResultadoErrado(){
+		double num1 = 10.0;
+		double num2 = 5.0;
+		double valorExperado = 2.0;
+		double valorAtual = OperacoesMatematicas.divideDoisValoresReais(num1, num2);
+		assertFalse("Erro na divisao dos valores.", valorExperado != valorAtual);
+	}
+	
+	
+	
+	@Test(expected = NumberFormatException.class)
+	public static void testDivisaoDividindoPorZero(){
+		try {
+			OperacoesMatematicas.divideDoisValoresReais(10d, 0d);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		assertEquals(null,null);
+	}
+	
+	@Test(expected = NumberFormatException.class)
+	public static void testDivisaoPassandoDoisNulo(){
+		try {
+			OperacoesMatematicas.divideDoisValoresReais(null, null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		assertEquals(null,null);
+	}  
+	
+	@Test(expected = NumberFormatException.class)
+	public static void testDivisaoPassandoUmNuloX(){
+		try {
+			OperacoesMatematicas.divideDoisValoresReais(null, 2d);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		assertEquals(null,null);
+	}  
+	
+	@Test(expected = NumberFormatException.class)
+	public static void testDivisaoPassandoUmNuloY(){
+		try {
+			OperacoesMatematicas.divideDoisValoresReais(2d, null); 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		assertEquals(null,null);
+	} 
+	
+
+} 
 
 
 
