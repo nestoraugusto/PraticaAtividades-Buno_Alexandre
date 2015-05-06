@@ -2,9 +2,7 @@ package br.senai.sc.util;
 
 public class ValidadorCPF {
  
-        public static void main(String[] args) {
-                System.out.println(validaCPF("833.853.878-76"));
-        }
+      
        
         public static String retiraCaracteresInvalidos(String cpf) {
                 return cpf.replaceAll("\\D", "");
@@ -22,11 +20,9 @@ public class ValidadorCPF {
                 if (cpf == null || cpf.length() != 11 || isCPFPadrao(cpf))
                         return false;
   
-                try {
+                
                         Long.parseLong(cpf);
-                } catch (NumberFormatException e) { // CPF n�o possui somente n�meros
-                        return false;
-                }
+                
                 
                 return calculaDigitoVerificador(cpf.substring(0, 9)).equals(cpf.substring(9, 11)); 
         }
